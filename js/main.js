@@ -64,8 +64,13 @@ class Carousel {
 
   /* ---- Measure max natural height across all cards ----------- */
   _measureHeight() {
+    // Use actual rendered card width (respects mobile breakpoints)
+    const actualW = this.track.parentElement?.offsetWidth
+      ? Math.min(this.track.parentElement.offsetWidth - 48, 500)
+      : 500;
+
     const probe = document.createElement('div');
-    probe.style.cssText = 'position:absolute;visibility:hidden;top:-9999px;left:0;width:500px;';
+    probe.style.cssText = `position:absolute;visibility:hidden;top:-9999px;left:0;width:${actualW}px;`;
     document.body.appendChild(probe);
 
     let maxH = 0;
@@ -73,14 +78,17 @@ class Carousel {
       const d = document.createElement('div');
       d.innerHTML = html;
       const card = d.firstElementChild;
-      card.style.height = 'auto';
+      card.style.height  = 'auto';
+      card.style.width   = '100%';
+      card.style.padding = '2.5rem'; // match CSS padding
+      card.style.boxSizing = 'border-box';
       probe.appendChild(card);
       maxH = Math.max(maxH, card.offsetHeight);
       probe.removeChild(card);
     });
 
     document.body.removeChild(probe);
-    this.cardH = maxH + 1; // +1px for subpixel safety
+    this.cardH = maxH + 2;
   }
 
   /* ---- Rebuild DOM window: [pos-WIN ... pos ... pos+WIN] ----- */
@@ -177,7 +185,11 @@ class Carousel {
       if (Math.abs(dx) > 40) this._slide(dx > 0 ? 1 : -1);
     });
 
-    window.addEventListener('resize', () => this._center(false), { passive: true });
+    window.addEventListener('resize', () => {
+      this._measureHeight();
+      this._fill();
+      this._center(false);
+    }, { passive: true });
   }
 }
 
