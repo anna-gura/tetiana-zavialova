@@ -1,4 +1,4 @@
-/* THOR */
+/* THOR — всі правила в body.thor-page, нуль var(), нуль витоку */
 body.thor-page { background:#0F0A1E; color:#F5EDD6; }
 body.thor-page nav.scrolled { background:rgba(15,10,30,0.96); box-shadow:0 1px 0 rgba(201,168,76,0.15); }
 body.thor-page .nav-logo { color:#F5EDD6; }
@@ -101,3 +101,18 @@ body.thor-page .popup-btn.em .popup-icon { stroke:#F5EDD6; }
 .thor-banner p { font-size:0.72rem; color:rgba(201,168,76,0.45); flex:1; }
 .thor-back { font-size:0.72rem; color:rgba(201,168,76,0.6); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; border-bottom:1px solid rgba(201,168,76,0.2); white-space:nowrap; transition:color 0.2s; }
 .thor-back:hover { color:#C9A84C; }
+
+/* Thor gallery captions override */
+body.thor-page .gallery-title { color:#F5EDD6; }
+body.thor-page .gallery-sub   { color:#D4CCBA; }
+body.thor-page #gallery       { background:#0F0A1E !important; }
+body.thor-page .gallery-item  { background:#1C1333; }
+body.thor-page .footer-offer-link { color:rgba(201,168,76,0.35); }
+body.thor-page .footer-offer-link:hover { color:#C9A84C; }
+body.thor-page .about-edu { color:rgba(201,168,76,0.45); }
+body.thor-page .about-certs-link { color:rgba(201,168,76,0.55); border-color:rgba(201,168,76,0.2); }
+body.thor-page .about-certs-link:hover { color:#C9A84C; border-color:#C9A84C; }
+body.thor-page .stats-note { color:#D4CCBA; }
+body.thor-page .stat-asterisk { color:#C9A84C; }
+body.thor-page .hero-links a { color:rgba(245,237,214,0.6); }
+body.thor-page .hero-links a:hover { color:#F5EDD6; }

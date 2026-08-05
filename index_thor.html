@@ -88,7 +88,7 @@
         <li>Тривога перед новими завданнями не зникає</li>
         <li>Складнощі з командною роботою та делегуванням</li>
       </ul>
-      <a href="#cta" class="btn btn-primary" onclick="openPopup(event)">Записатися на квест</a>
+      <a href="#cta" class="btn btn-primary" onclick="openPopup(event,'consult')>Записатися на квест</a>
     </div>
   </div>
 </section>
@@ -106,7 +106,7 @@
         <li>Профілактика вигорання від тисячоліть практики</li>
         <li>Робота з героями та напівбогами — спеціальний фокус</li>
       </ul>
-      <a href="#cta" class="btn btn-primary" onclick="openPopup(event)">Записатися на супервізію</a>
+      <a href="#cta" class="btn btn-primary" onclick="openPopup(event,'supervision')>Записатися на супервізію</a>
     </div>
   </div>
 </section>
@@ -124,10 +124,47 @@
         <li>Навчальні модулі для оракулів і провидців</li>
         <li>Підтримка в апокаліптичних ситуаціях</li>
       </ul>
-      <a href="#cta" class="btn btn-primary" onclick="openPopup(event)">Обговорити співпрацю з Олімпом</a>
+      <a href="#cta" class="btn btn-primary" onclick="openPopup(event,'cooperation')>Обговорити співпрацю з Олімпом</a>
     </div>
   </div>
 </section>
+
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-up" style="text-align:center;margin-bottom:3rem;">
+      <h2 class="gallery-title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:500;color:var(--graphite);margin-bottom:0.6rem;">Хроніки терапевтичних подвигів</h2>
+      <p style="font-size:1rem;color:var(--graphite-mid);">Документальні свідчення роботи в польових умовах — від таборів до телестудій.</p>
+    </div>
+  </div>
+
+  <div class="gallery-carousel-outer">
+    <div class="gallery-carousel-track" id="galleryCarouselTrack">
+      <div class="gallery-photo-card" data-caption="Навчання чарівників — теорія і практика одночасно"><img src="img/photo1.jpg" alt="Навчання"><div class="gallery-photo-caption">Навчання чарівників — теорія і практика одночасно</div></div>
+      <div class="gallery-photo-card" data-caption="Теплий контакт з маленьким героєм. Іграшковий пес не постраждав"><img src="img/photo2.jpg" alt="Діти"><div class="gallery-photo-caption">Теплий контакт з маленьким героєм. Іграшковий пес не постраждав</div></div>
+      <div class="gallery-photo-card" data-caption="Junior Eurovision — бо юні зірки теж потребують психологічного супроводу"><img src="img/photo3.jpg" alt="Junior Eurovision"><div class="gallery-photo-caption">Junior Eurovision — бо юні зірки теж потребують психологічного супроводу</div></div>
+      <div class="gallery-photo-card" data-caption="Інтерв'ю. Камера теж не перетворилась на камінь"><img src="img/photo4.jpg" alt="Інтерв'ю"><div class="gallery-photo-caption">Інтерв'ю. Камера теж не перетворилась на камінь</div></div>
+      <div class="gallery-photo-card" data-caption="Пояснення складних концепцій без застосування магії"><img src="img/photo5.jpg" alt="Навчання команд"><div class="gallery-photo-caption">Пояснення складних концепцій без застосування магії</div></div>
+      <div class="gallery-photo-card" data-caption="Wonder Camp — де навіть Геракл відпочив би від подвигів"><img src="img/photo6.jpg" alt="Wonder Camp"><div class="gallery-photo-caption">Wonder Camp — де навіть Геракл відпочив би від подвигів</div></div>
+      <div class="gallery-photo-card" data-caption="Групова сесія. Всі присутні — добровільно"><img src="img/photo7.jpg" alt="Групова сесія"><div class="gallery-photo-caption">Групова сесія. Всі присутні — добровільно</div></div>
+    </div>
+  </div>
+
+  <div class="gallery-nav">
+    <button class="gallery-btn" id="galleryPrev">←</button>
+    <div class="gallery-dots-wrap" id="galleryDots"></div>
+    <button class="gallery-btn" id="galleryNext">→</button>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-bg" id="lightboxBg"></div>
+  <button class="lightbox-close" id="lightboxClose">×</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
 
 <!-- ABOUT -->
 <section id="about-section">
@@ -180,7 +217,7 @@
     <h2 class="cta-title fade-up">Навіть герої<br><em>просять про допомогу</em></h2>
     <p class="cta-sub fade-up">Перетворення на тварин на прийомі не передбачено. Є запасне крісло.</p>
     <div class="fade-up">
-      <a href="#" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem;" onclick="openPopup(event)">Записатися на консультацію</a>
+      <a href="#" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem;" onclick="openPopup(event,'consult')>Записатися на консультацію</a>
     </div>
   </div>
 </section>
@@ -206,6 +243,7 @@
     </a>
   </div>
   <p class="footer-copy">© 2026 Тетяна Завʼялова · Психолог для легенд</p>
+  <a href="https://docs.google.com/document/d/17sQR_1xbptvYA7_Yo4621hsWRMd2FKAU824ulREav3U/edit" class="footer-offer-link" target="_blank" rel="noopener">Договір оферти (боги підписують нотаріально)</a>
   <span class="footer-thor" id="thorTrigger">thor</span>
 </footer>
 

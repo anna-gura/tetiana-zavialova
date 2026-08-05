@@ -41,13 +41,15 @@
   <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <p class="hero-eyebrow">Психологиня · Супервізор</p>
-      <h1 class="hero-title">Психологиня для підлітків, батьків та психологів</h1>
-      <p class="hero-subtitle">Допомагаю пройти складні періоди, відновити контакт і знайти рішення, які працюють.</p>
+      <p class="hero-eyebrow">Психологиня для підлітків і батьків · Супервізорка</p>
+      <h1 class="hero-title">Коли важливо не просто поговорити, а знайти рішення</h1>
+      <p class="hero-subtitle">Допомагаю підліткам і батькам пройти складний період, а психологам — впевненіше працювати зі складними випадками.</p>
       <div class="hero-btns">
-        <a href="#for-parents" class="btn btn-primary">Мені потрібна консультація</a>
-        <a href="#for-psychologists" class="btn btn-secondary">Хочу професійно зростати</a>
-        <a href="#for-organizations" class="btn btn-ghost">Хочу обговорити співпрацю</a>
+        <a href="#cta" class="btn btn-primary" onclick="openPopup(event,'consult')">Записатися на консультацію</a>
+      </div>
+      <div class="hero-links">
+        <a href="#for-psychologists">Для психологів →</a>
+        <a href="#for-organizations">Для організацій →</a>
       </div>
       <p class="hero-meta">Понад 10 років практики&nbsp;•&nbsp;Підлітки&nbsp;•&nbsp;Батьки&nbsp;•&nbsp;Психологи</p>
     </div>
@@ -63,10 +65,11 @@
 <section id="stats">
   <div class="container">
     <div class="stats-grid fade-up">
-      <div class="stat-card"><div class="stat-number">15+</div><div class="stat-label">років досвіду роботи з людьми</div></div>
-      <div class="stat-card"><div class="stat-number">10+</div><div class="stat-label">років психологічної практики</div></div>
+      <div class="stat-card"><div class="stat-number">15+</div><div class="stat-label">років психологічної практики</div></div>
       <div class="stat-card"><div class="stat-number">5+</div><div class="stat-label">років роботи з кризовими станами</div></div>
+      <div class="stat-card"><div class="stat-number">5–7</div><div class="stat-label">консультацій — середня тривалість роботи із більшістю запитів<span class="stat-asterisk">*</span></div></div>
     </div>
+    <p class="stats-note fade-up">* Залежить від запиту та індивідуальної ситуації.</p>
     <div class="stats-tags fade-up">
       <div class="stats-tag-card"><div class="stats-tag-title">Підлітки&nbsp;•&nbsp;батьки&nbsp;•&nbsp;психологи</div><div class="stats-tag-sub">ключові напрямки роботи</div></div>
       <div class="stats-tag-card"><div class="stats-tag-title">КПТ&nbsp;•&nbsp;арт-терапія&nbsp;•&nbsp;супервізія</div><div class="stats-tag-sub">доказові методи роботи</div></div>
@@ -80,13 +83,17 @@
     <div class="fade-up">
       <span class="audience-tag">Для батьків</span>
       <h2>Зрозуміти підлітка і відновити контакт</h2>
-      <p>Підлітковий вік — це не «важкий період», який треба пережити. Це час, коли ваша дитина вперше знайомиться з собою. І цей шлях вона може пройти разом з вами — якщо є контакт.</p>
+      <p>Вам знайоме?</p>
       <ul class="audience-points">
-        <li>Ви відчуваєте, що дитина закрилась і «усе нормально» — це все що ви чуєте</li>
-        <li>Конфлікти стали щоденними і ви не знаєте як їх зупинити</li>
-        <li>Ви хочете підтримати, але не знаєте як</li>
+        <li>Дитина закрилась</li>
+        <li>Удома постійні конфлікти</li>
+        <li>У відповідь лише: «Все нормально»</li>
+        <li>Ви думаєте: «Я погана мама?»</li>
+        <li>Ви не знаєте, як допомогти</li>
       </ul>
-      <a href="#cta" class="btn btn-primary" onclick="openPopup(event)">Записатися на консультацію</a>
+      <p style="margin-bottom:1rem;">Допомагаю краще зрозуміти підлітка, зменшити тривогу і відновити контакт.</p>
+      <p style="margin-bottom:1.5rem;font-size:0.9rem;color:var(--graphite-mid);">Після консультації ви отримуєте короткі рекомендації, щоб легше впроваджувати зміни.</p>
+      <a href="#cta" class="btn btn-primary" onclick="openPopup(event,'consult')">Записатися на консультацію</a>
     </div>
   </div>
 </section>
@@ -104,7 +111,7 @@
         <li>Профілактика вигорання та підтримка в кризах</li>
         <li>Робота з підлітками та сімʼями — спеціальний фокус</li>
       </ul>
-      <a href="#cta" class="btn btn-primary" onclick="openPopup(event)">Записатися на супервізію</a>
+      <a href="#cta" class="btn btn-primary" onclick="openPopup(event,'supervision')">Записатися на супервізію</a>
     </div>
   </div>
 </section>
@@ -122,10 +129,47 @@
         <li>Навчальні модулі для педагогів і соціальних працівників</li>
         <li>Підтримка в кризових ситуаціях</li>
       </ul>
-      <a href="#cta" class="btn btn-primary" onclick="openPopup(event)">Обговорити співпрацю</a>
+      <a href="#cta" class="btn btn-primary" onclick="openPopup(event,'cooperation')">Обговорити співпрацю</a>
     </div>
   </div>
 </section>
+
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header fade-up" style="text-align:center;margin-bottom:3rem;">
+      <h2 class="gallery-title" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:500;color:var(--graphite);margin-bottom:0.6rem;">Досвід, який говорить сам за себе</h2>
+      <p style="font-size:1rem;color:var(--graphite-mid);">Від індивідуальної підтримки до роботи з командами та великими проектами.</p>
+    </div>
+  </div>
+
+  <div class="gallery-carousel-outer">
+    <div class="gallery-carousel-track" id="galleryCarouselTrack">
+      <div class="gallery-photo-card" data-caption="Навчання психологів, педагогів та команд"><img src="img/photo1.jpg" alt="Навчання психологів, педагогів та команд"><div class="gallery-photo-caption">Навчання психологів, педагогів та команд</div></div>
+      <div class="gallery-photo-card" data-caption="Підтримка дітей через контакт, гру та безпеку"><img src="img/photo2.jpg" alt="Робота з дітьми"><div class="gallery-photo-caption">Підтримка дітей через контакт, гру та безпеку</div></div>
+      <div class="gallery-photo-card" data-caption="Психологічний супровід учасників Національного відбору Junior Eurovision"><img src="img/photo3.jpg" alt="Junior Eurovision"><div class="gallery-photo-caption">Психологічний супровід учасників Національного відбору Junior Eurovision</div></div>
+      <div class="gallery-photo-card" data-caption="Інтерв'ю та ефіри"><img src="img/photo4.jpg" alt="Інтерв'ю та ефіри"><div class="gallery-photo-caption">Інтерв'ю та ефіри</div></div>
+      <div class="gallery-photo-card" data-caption="Навчання команд та освітніх фахівців"><img src="img/photo5.jpg" alt="Навчання команд та освітніх фахівців"><div class="gallery-photo-caption">Навчання команд та освітніх фахівців</div></div>
+      <div class="gallery-photo-card" data-caption="Wonder Camp — психологічний супровід дитячого табору"><img src="img/photo6.jpg" alt="Wonder Camp"><div class="gallery-photo-caption">Wonder Camp — психологічний супровід дитячого табору</div></div>
+      <div class="gallery-photo-card" data-caption="Навчання психологів і команд"><img src="img/photo7.jpg" alt="Навчання психологів і команд"><div class="gallery-photo-caption">Навчання психологів і команд</div></div>
+    </div>
+  </div>
+
+  <div class="gallery-nav">
+    <button class="gallery-btn" id="galleryPrev">←</button>
+    <div class="gallery-dots-wrap" id="galleryDots"></div>
+    <button class="gallery-btn" id="galleryNext">→</button>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-bg" id="lightboxBg"></div>
+  <button class="lightbox-close" id="lightboxClose">×</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
 
 <!-- ABOUT -->
 <section id="about-section">
@@ -136,6 +180,8 @@
       <div class="about-divider"></div>
       <p class="about-bio">Я — психолог із фокусом на роботі з підлітками та їхніми сімʼями. Вірю, що підлітковий вік — це час, коли людина вперше знайомиться з собою справжньою.</p>
       <p class="about-bio">У роботі з психологами допомагаю побачити те, що важко помітити самостійно — і рости не через вигорання, а попри нього.</p>
+      <p class="about-edu">Психологічна освіта&nbsp;•&nbsp;КПТ&nbsp;•&nbsp;кризова психологія&nbsp;•&nbsp;арт-терапія&nbsp;•&nbsp;супервізія</p>
+      <a href="https://drive.google.com/drive/folders/your-folder-id" class="about-certs-link" target="_blank" rel="noopener">Дипломи та сертифікати →</a>
       <div class="about-socials">
         <a href="https://www.facebook.com/share/1CjKU2RE9J/" class="about-social-link" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/tetyana.zavyalova" class="about-social-link" target="_blank" rel="noopener">Instagram</a>
@@ -177,7 +223,7 @@
     <h2 class="cta-title fade-up">Готові зробити<br><em>перший крок?</em></h2>
     <p class="cta-sub fade-up">Оберіть зручний спосіб — я відповідаю особисто.</p>
     <div class="fade-up">
-      <a href="#" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem;" onclick="openPopup(event)">Записатися на консультацію</a>
+      <a href="#" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.5rem;" onclick="openPopup(event,'consult')">Записатися на консультацію</a>
     </div>
   </div>
 </section>
@@ -203,6 +249,7 @@
     </a>
   </div>
   <p class="footer-copy">© 2026 Тетяна Завʼялова · Психолог · Супервізор</p>
+  <a href="https://docs.google.com/document/d/17sQR_1xbptvYA7_Yo4621hsWRMd2FKAU824ulREav3U/edit" class="footer-offer-link" target="_blank" rel="noopener">Договір оферти</a>
   <span class="footer-thor" id="thorTrigger">thor</span>
 </footer>
 
