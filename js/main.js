@@ -202,19 +202,6 @@ class PopupManager {
   close() { this.overlay.classList.remove('open'); document.body.style.overflow = ''; }
 }
 
-class EasterEgg {
-  constructor() {
-    this.buf  = '';
-    this.seqs = ['thor', 'ерщк'];
-    this.max  = 5;
-    document.getElementById('thorTrigger')?.addEventListener('click', () => this._go());
-    document.addEventListener('keydown', e => {
-      this.buf = (this.buf + e.key.toLowerCase()).slice(-this.max);
-      if (this.seqs.some(s => this.buf.endsWith(s))) this._go();
-    });
-  }
-  _go() { window.location.href = 'index_thor.html'; }
-}
 
 class GalleryCarousel {
   constructor() {
@@ -344,7 +331,6 @@ class App {
     this.reveal   = new ScrollReveal();
     this.carousel = new Carousel();
     this.popup    = new PopupManager();
-    this.egg      = new EasterEgg();
     this.gallery        = new Gallery();
     this.galleryCarousel = new GalleryCarousel();
 
