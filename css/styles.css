@@ -563,3 +563,91 @@ footer {
 @media (max-width: 768px) {
   .gallery-photo-card { flex: 0 0 85vw; }
 }
+
+.audience-tags-line {
+  font-size: 0.95rem; font-weight: 500;
+  color: var(--graphite); margin-bottom: 0.75rem;
+}
+.audience-lgbt {
+  font-size: 0.95rem; color: var(--graphite-mid);
+  margin-bottom: 1.2rem; line-height: 1.6;
+}
+.rainbow-text {
+  background: linear-gradient(90deg, #e40303, #ff8c00, #ccb800, #008026, #004dff, #750787);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 500;
+}
+
+.hero-text    { /* desktop: just flow naturally */ }
+.hero-actions { margin-top: 0; }
+
+@media (max-width: 768px) {
+  /* Mobile hero order: photo → actions → text */
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-right   { order: 1; }        /* фото — зверху */
+  .hero-actions { order: 2; margin-top: 1.5rem; } /* кнопка + посилання + meta */
+  .hero-text    { order: 3; margin-top: 1rem; }   /* eyebrow + title + subtitle */
+  .hero-actions .hero-meta { display: none; } /* meta не потрібна на мобільному */
+
+  /* Photo: fade bottom edge */
+  .hero-photo-wrap {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  /* Hide on mobile */
+  .hero-eyebrow { display: none; }
+  .hero-title   { display: none; }
+  .hero-meta    { display: none; }
+
+  /* Subtitle as heading */
+  .hero-subtitle {
+    font-size: 1.3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    color: var(--sand);
+    line-height: 1.25;
+    margin-bottom: 0;
+    font-style: normal;
+  }
+}
+
+/* Desktop hero — restore grid, reset mobile order */
+@media (min-width: 769px) {
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .hero-left    { order: unset; }
+  .hero-right   { order: unset; }
+  .hero-text    { order: unset; }
+  .hero-actions { order: unset; }
+  .hero-photo-wrap {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .hero-eyebrow { display: block; }
+  .hero-title   { display: block; }
+  .hero-meta    { display: block; }
+  .hero-actions .hero-meta { display: block; }
+  .hero-subtitle {
+    font-size: 1.05rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: rgba(242,232,220,0.72);
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Desktop: restore original left-text / right-photo layout */
+@media (min-width: 769px) {
+  .hero-right { order: 2; }
+  .hero-left  { order: 1; }
+}

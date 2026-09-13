@@ -107,22 +107,19 @@ class Carousel {
     this._updateClasses(); // opacity starts transitioning NOW via CSS
     this._setPosition(true);
 
-    const onEnd = () => {
+    setTimeout(() => {
       // Jump silently if we hit a clone zone
-      const minReal = 0, maxReal = this.total - 1;
-      if (this.current < minReal) {
-        this.current = maxReal;
+      if (this.current < 0) {
+        this.current = this.total - 1;
         this._setPosition(false);
-      } else if (this.current > maxReal) {
-        this.current = minReal;
+      } else if (this.current >= this.total) {
+        this.current = 0;
         this._setPosition(false);
       }
+      this._updateClasses();
       this._updateDots();
       this.busy = false;
-    };
-
-    this.track.addEventListener('transitionend', onEnd, { once: true });
-    setTimeout(onEnd, 520); // fallback
+    }, 460);
   }
 
   _buildDots() {
@@ -149,12 +146,19 @@ class Carousel {
   _bindEvents() {
     this.prevBtn?.addEventListener('click', () => this._slide(-1));
     this.nextBtn?.addEventListener('click', () => this._slide(1));
-    let sx = 0;
-    this.track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+    let sx = 0, sy = 0;
+    this.track.addEventListener('touchstart', e => {
+      sx = e.touches[0].clientX;
+      sy = e.touches[0].clientY;
+    }, { passive: true });
     this.track.addEventListener('touchend', e => {
       const dx = sx - e.changedTouches[0].clientX;
-      if (Math.abs(dx) > 40) this._slide(dx > 0 ? 1 : -1);
-    });
+      const dy = sy - e.changedTouches[0].clientY;
+      // Only horizontal swipe (not vertical scroll)
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        this._slide(dx > 0 ? 1 : -1);
+      }
+    }, { passive: true });
     window.addEventListener('resize', () => this._setPosition(false), { passive: true });
   }
 }
@@ -202,6 +206,19 @@ class PopupManager {
   close() { this.overlay.classList.remove('open'); document.body.style.overflow = ''; }
 }
 
+class EasterEgg {
+  constructor() {
+    this.buf  = '';
+    this.seqs = ['thor', 'ерщк'];
+    this.max  = 5;
+    document.getElementById('thorTrigger')?.addEventListener('click', () => this._go());
+    document.addEventListener('keydown', e => {
+      this.buf = (this.buf + e.key.toLowerCase()).slice(-this.max);
+      if (this.seqs.some(s => this.buf.endsWith(s))) this._go();
+    });
+  }
+  _go() { window.location.href = 'index_thor.html'; }
+}
 
 class GalleryCarousel {
   constructor() {
@@ -280,14 +297,13 @@ class GalleryCarousel {
     this._updateClasses();
     this._setPosition(true);
 
-    const onEnd = () => {
+    setTimeout(() => {
       if (this.current < 0) { this.current = this.total - 1; this._setPosition(false); }
       else if (this.current >= this.total) { this.current = 0; this._setPosition(false); }
+      this._updateClasses();
       this._updateDots();
       this.busy = false;
-    };
-    this.track.addEventListener('transitionend', onEnd, { once: true });
-    setTimeout(onEnd, 520);
+    }, 460);
   }
 
   _buildDots() {
@@ -314,12 +330,16 @@ class GalleryCarousel {
   _bindEvents() {
     this.prevBtn?.addEventListener('click', () => this._slide(-1));
     this.nextBtn?.addEventListener('click', () => this._slide(1));
-    let sx = 0;
-    this.track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+    let sx = 0, sy = 0;
+    this.track.addEventListener('touchstart', e => {
+      sx = e.touches[0].clientX;
+      sy = e.touches[0].clientY;
+    }, { passive: true });
     this.track.addEventListener('touchend', e => {
       const dx = sx - e.changedTouches[0].clientX;
-      if (Math.abs(dx) > 40) this._slide(dx > 0 ? 1 : -1);
-    });
+      const dy = sy - e.changedTouches[0].clientY;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) this._slide(dx > 0 ? 1 : -1);
+    }, { passive: true });
     window.addEventListener('resize', () => this._setPosition(false), { passive: true });
   }
 }
@@ -331,6 +351,7 @@ class App {
     this.reveal   = new ScrollReveal();
     this.carousel = new Carousel();
     this.popup    = new PopupManager();
+    this.egg      = new EasterEgg();
     this.gallery        = new Gallery();
     this.galleryCarousel = new GalleryCarousel();
 
