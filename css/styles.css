@@ -589,7 +589,8 @@ footer {
     display: flex;
     flex-direction: column;
   }
-  .hero-right { order: 1; display: flex; justify-content: center; }        /* фото — зверху */
+  .hero-right { order: 1; display: flex; justify-content: center; }
+  .hero-photo-wrap { width: 75vw; max-width: 300px; height: 320px; margin: 0 auto; border-radius: 0; }
   .hero-actions { order: 2; margin-top: 1.5rem; } /* кнопка + посилання + meta */
   .hero-text    { order: 3; margin-top: 1rem; }   /* eyebrow + title + subtitle */
   .hero-actions .hero-meta { display: none; } /* meta не потрібна на мобільному */
